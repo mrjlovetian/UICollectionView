@@ -7,16 +7,18 @@
 //
 
 #import "MRJCollectionViewController.h"
+#import "CollectionHandle.h"
 
 @interface MRJCollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong)UICollectionView *collectionView;
+@property (nonatomic, strong)UIImageView *backImageView;
 @end
 
 @implementation MRJCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.view addSubview:self.backImageView];
     [self.view addSubview:self.collectionView];
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -49,21 +51,23 @@
 }
 
 #pragma mark UICollectionViewDelegateFlowLayout
-/*
- - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
- - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section;
- - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section;
- - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section;
- - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section;
- - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section;
- */
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    return CGSizeMake(SCREEN.width, 10);
+}
 
 #pragma mark UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"touch the item indexPath is %@", indexPath);
+}
 
 #pragma mark UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 10;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 100;
+    return [CollectionHandle getCollectionCellRowWithSection:section];
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -80,12 +84,23 @@
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN.width, SCREEN.height) collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+        _collectionView.backgroundColor = [UIColor clearColor];
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+        _collectionView.contentInset = UIEdgeInsetsMake(10, 10, 0, 10);
         layout.itemSize = CGSizeMake(100, 100);
         layout.minimumLineSpacing = 10;
         layout.minimumInteritemSpacing = 20;
     }
     return _collectionView;
+}
+
+- (UIImageView *)backImageView{
+    if (!_backImageView) {
+        _backImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN.width, SCREEN.height)];
+        _backImageView.backgroundColor = [UIColor orangeColor];
+        _backImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"652115" ofType:@"jpg"]];
+    }
+    return _backImageView;
 }
 
 /*

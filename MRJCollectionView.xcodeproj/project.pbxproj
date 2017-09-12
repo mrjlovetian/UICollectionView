@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2B73C4A1F679A3300DDCC7E /* 652115.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2B73C491F679A3300DDCC7E /* 652115.jpg */; };
 		C2B9992B1F66602A0042C43E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B9992A1F66602A0042C43E /* main.m */; };
 		C2B9992E1F66602A0042C43E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B9992D1F66602A0042C43E /* AppDelegate.m */; };
 		C2B999311F66602A0042C43E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B999301F66602A0042C43E /* ViewController.m */; };
 		C2B999361F66602A0042C43E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B999351F66602A0042C43E /* Assets.xcassets */; };
 		C2B999391F66602A0042C43E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2B999371F66602A0042C43E /* LaunchScreen.storyboard */; };
 		C2B999421F6660E60042C43E /* MRJCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B999411F6660E60042C43E /* MRJCollectionViewController.m */; };
+		C2B999461F6673600042C43E /* CollectionHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B999451F6673600042C43E /* CollectionHandle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C2B73C491F679A3300DDCC7E /* 652115.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 652115.jpg; sourceTree = "<group>"; };
 		C2B999261F66602A0042C43E /* MRJCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MRJCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B9992A1F66602A0042C43E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C2B9992C1F66602A0042C43E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,6 +31,8 @@
 		C2B999401F6660E60042C43E /* MRJCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRJCollectionViewController.h; sourceTree = "<group>"; };
 		C2B999411F6660E60042C43E /* MRJCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRJCollectionViewController.m; sourceTree = "<group>"; };
 		C2B999431F6661FA0042C43E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C2B999441F6673600042C43E /* CollectionHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionHandle.h; sourceTree = "<group>"; };
+		C2B999451F6673600042C43E /* CollectionHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionHandle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +71,10 @@
 				C2B999301F66602A0042C43E /* ViewController.m */,
 				C2B999401F6660E60042C43E /* MRJCollectionViewController.h */,
 				C2B999411F6660E60042C43E /* MRJCollectionViewController.m */,
+				C2B999441F6673600042C43E /* CollectionHandle.h */,
+				C2B999451F6673600042C43E /* CollectionHandle.m */,
 				C2B999431F6661FA0042C43E /* PrefixHeader.pch */,
+				C2B73C491F679A3300DDCC7E /* 652115.jpg */,
 				C2B999351F66602A0042C43E /* Assets.xcassets */,
 				C2B999371F66602A0042C43E /* LaunchScreen.storyboard */,
 				C2B9993A1F66602A0042C43E /* Info.plist */,
@@ -141,6 +149,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B73C4A1F679A3300DDCC7E /* 652115.jpg in Resources */,
 				C2B999391F66602A0042C43E /* LaunchScreen.storyboard in Resources */,
 				C2B999361F66602A0042C43E /* Assets.xcassets in Resources */,
 			);
@@ -157,6 +166,7 @@
 				C2B999311F66602A0042C43E /* ViewController.m in Sources */,
 				C2B9992E1F66602A0042C43E /* AppDelegate.m in Sources */,
 				C2B9992B1F66602A0042C43E /* main.m in Sources */,
+				C2B999461F6673600042C43E /* CollectionHandle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
