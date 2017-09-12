@@ -8,6 +8,7 @@
 
 #import "MRJCollectionViewController.h"
 #import "CollectionHandle.h"
+#import "SuperFilmViewCell.h"
 
 @interface MRJCollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong)UICollectionView *collectionView;
@@ -27,7 +28,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
+//    [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
 }
 
 //强制转屏
@@ -51,9 +52,17 @@
 }
 
 #pragma mark UICollectionViewDelegateFlowLayout
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     return CGSizeMake(SCREEN.width, 10);
 }
+
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+//    NSInteger numberOfItem = [collectionView numberOfItemsInSection:section];
+//    NSLog(@"------------------------%ld", numberOfItem);
+//    CGFloat pading = (collectionView.frame.size.width - numberOfItem * collectionViewLayout.itemSize.width - (numberOfItem - 1) * collectionViewLayout.minimumInteritemSpacing)/2.0;
+//    return UIEdgeInsetsMake(0, pading, 0, 0);
+//
+//}
 
 #pragma mark UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -72,8 +81,8 @@
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    SuperFilmViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+//    cell.backgroundColor = [UIColor redColor];
     return cell;
 }
 
@@ -85,7 +94,7 @@
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.backgroundColor = [UIColor clearColor];
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+        [_collectionView registerClass:[SuperFilmViewCell class] forCellWithReuseIdentifier:@"cell"];
         _collectionView.contentInset = UIEdgeInsetsMake(10, 10, 0, 10);
         layout.itemSize = CGSizeMake(100, 100);
         layout.minimumLineSpacing = 10;
